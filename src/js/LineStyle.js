@@ -1,0 +1,4 @@
+var LineStyle = {
+  default: '-',
+  dashed: '--'
+};
