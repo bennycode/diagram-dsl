@@ -1,6 +1,5 @@
 {
   "name": "js-sequence-diagrams-dsl",
-  "description": "...",
   "main": "dist/js/js-sequence-diagrams-dsl.js",
   "ignore": [
     ".gitignore",
