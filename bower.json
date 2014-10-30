@@ -18,7 +18,9 @@
   ],
   "dependencies": {
     "jquery": "~2.1",
-    "js-sequence-diagrams": "~1.0"
+    "js-sequence-diagrams": "~1.0",
+    "raphael": "~2.1",
+    "underscore": "~1.7"
   },
   "repository": {
     "type": "git",
