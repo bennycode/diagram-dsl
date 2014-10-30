@@ -54,7 +54,7 @@ window.Diagram.DSL.SequenceDiagram = (function () {
     var outer = document.createElement('div');
     outer.appendChild(svgElement.cloneNode(true));
     var xml = outer.innerHTML;
-    var unicodeXml = window.btoa(unescape(encodeURIComponent(xml)));
+    var unicodeXml = window.btoa(window.Diagram.DSL.unescape(encodeURIComponent(xml)));
 
     var self = this;
 

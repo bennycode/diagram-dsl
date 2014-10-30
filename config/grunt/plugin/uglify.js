@@ -1,10 +1,6 @@
 module.exports = {
   options: {
-    banner: '// ┌─────────────────────────────────────────┐ \\'+ '\n' +
-            '// │ Domain-specific language for JavaScript sequence diagrams         │ \\'+ '\n' +
-            '// ├─────────────────────────────────────────┤ \\'+ '\n' +
-            '// │ Copyright © <%= grunt.template.today("yyyy") %> Benny Neugebauer (http://welovecoding.com)       │ \\'+ '\n'+
-            '// └─────────────────────────────────────────┘ \\'
+    banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */' + '\n'
   },
   dist: {
     options: {
