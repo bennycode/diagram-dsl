@@ -1,4 +1,3 @@
-window.Diagram.DSL = window.Diagram.DSL || {};
 window.Diagram.DSL.Command = (function () {
 
   function Command(action) {

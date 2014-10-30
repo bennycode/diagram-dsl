@@ -1,4 +1,3 @@
-window.Diagram.DSL = window.Diagram.DSL || {};
 window.Diagram.DSL.SequenceDiagram = (function () {
 
   function SequenceDiagram(title, style) {
