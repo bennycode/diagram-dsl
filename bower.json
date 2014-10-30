@@ -1,0 +1,29 @@
+{
+  "name": "js-sequence-diagrams-dsl",
+  "description": "...",
+  "main": "demo/main.js",
+  "ignore": [
+    ".gitignore",
+    "Gruntfile.js",
+    "README.md",
+    "assets",
+    "bower.json",
+    "bower_components",
+    "demo",
+    "index.html",
+    "nbproject",
+    "node_modules",
+    "package.json",
+    "test"
+  ],
+  "dependencies": {
+    "jQuery": "~2.1",
+    "js-sequence-diagrams": "~1.0",
+    "raphael": "~2.1",
+    "underscore": "~1.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/welovecoding/js-sequence-diagrams-dsl"
+  }
+}

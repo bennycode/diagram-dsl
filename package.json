@@ -1,0 +1,18 @@
+{
+  "name": "webapp-module-logger",
+  "devDependencies": {
+    "grunt": "~0",
+    "grunt-contrib-clean": "~0",
+    "grunt-contrib-coffee": "*",
+    "grunt-contrib-concat": "~0",
+    "grunt-contrib-jasmine": "~0.6",
+    "grunt-contrib-less": "~0",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "load-grunt-tasks": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/wearezeta/webapp-module-logger"
+  }
+}
