@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>js-sequence-diagrams-dsl</title>
+    <title>Demo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/vnd.microsoft.icon" href="assets/images/favicon.ico" />
@@ -24,7 +24,7 @@
     <div id="mySequenceDiagram"></div>
     <button id="saveAsPng">Save as PNG</button>
     <script>
-      window.onload = function () {
+      $(document).ready(function () {
         var bart = 'Bart';
         var homer = 'Homer';
         var lisa = 'Lisa';
@@ -48,7 +48,7 @@
           event.preventDefault();
           diagram.saveAsPng();
         });
-      };
+      });
     </script>
   </body>
 </html>
