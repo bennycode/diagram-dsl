@@ -24,33 +24,31 @@
     <div id="mySequenceDiagram"></div>
     <button id="saveAsPng">Save as PNG</button>
     <script>
-      jQuery(document).ready(function ($) {
-        with (window.Diagram.DSL) {
-          var bart = 'Bart';
-          var homer = 'Homer';
-          var lisa = 'Lisa';
-          var marge = 'Marge';
+      with (window.Diagram.DSL) {
+        var bart = 'Bart';
+        var homer = 'Homer';
+        var lisa = 'Lisa';
+        var marge = 'Marge';
 
-          var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramStyle.HAND_DRAWN);
-          var element = $('#mySequenceDiagram');
+        var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramStyle.HAND_DRAWN);
+        var element = $('#mySequenceDiagram');
 
-          diagram.sequences = [
-            from(bart).lineTo(homer).withText('annoys'),
-            from(homer).lineTo(bart).withText('chokes'),
-            from(bart).dashTo(lisa).withText('annoys'),
-            from(lisa).dashTo(marge).withText('stools at'),
-            from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
-          ];
+        diagram.sequences = [
+          from(bart).lineTo(homer).withText('annoys'),
+          from(homer).lineTo(bart).withText('chokes'),
+          from(bart).dashTo(lisa).withText('annoys'),
+          from(lisa).dashTo(marge).withText('stools at'),
+          from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
+        ];
 
-          diagram.renderTo(element);
+        diagram.renderTo(element);
 
-          // Save as PNG
-          $('#saveAsPng').click(function (event) {
-            event.preventDefault();
-            diagram.saveAsPng();
-          });
-        }
-      });
+        // Save as PNG
+        $('#saveAsPng').click(function (event) {
+          event.preventDefault();
+          diagram.saveAsPng();
+        });
+      }
     </script>
   </body>
 </html>
