@@ -17,7 +17,7 @@
     "test"
   ],
   "dependencies": {
-    "jQuery": "~2.1",
+    "jquery": "~2.1",
     "js-sequence-diagrams": "~1.0",
     "raphael": "~2.1",
     "underscore": "~1.7"
