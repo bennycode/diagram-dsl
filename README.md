@@ -14,6 +14,32 @@ npm install
 bower install
 ```
 
+## Demo
+
+### Code
+
+```js
+var bart = 'Bart';
+var homer = 'Homer';
+var lisa = 'Lisa';
+var marge = 'Marge';
+
+var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramStyle.handDrawn);
+var element = $('#mySequenceDiagram');
+
+diagram.sequences = [
+  from(bart).lineTo(homer).withText('annoys'),
+  from(homer).lineTo(bart).withText('chokes'),
+  from(bart).dashTo(lisa).withText('annoys'),
+  from(lisa).dashTo(marge).withText('stools at'),
+  from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
+];
+
+diagram.renderTo(element);
+```
+
+### Result
+
 ## Options
 
 ```

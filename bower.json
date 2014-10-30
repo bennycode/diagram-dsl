@@ -1,7 +1,7 @@
 {
   "name": "js-sequence-diagrams-dsl",
   "description": "...",
-  "main": "demo/main.js",
+  "main": "src/js/SequenceDiagramDSL.js",
   "ignore": [
     ".gitignore",
     "Gruntfile.js",

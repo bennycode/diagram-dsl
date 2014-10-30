@@ -8,11 +8,28 @@
     <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/raphael/raphael-min.js"></script>
     <script src="bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
+    <script src="src/js/SequenceDiagramDSL.js"></script>
   </head>
   <body>
-    <div class="diagram">A->B: Message</div>
+    <div id="mySequenceDiagram"></div>
     <script>
-      $(".diagram").sequenceDiagram({theme: 'hand'});
+      var bart = 'Bart';
+      var homer = 'Homer';
+      var lisa = 'Lisa';
+      var marge = 'Marge';
+
+      var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramStyle.handDrawn);
+      var element = $('#mySequenceDiagram');
+
+      diagram.sequences = [
+        from(bart).lineTo(homer).withText('annoys'),
+        from(homer).lineTo(bart).withText('chokes'),
+        from(bart).dashTo(lisa).withText('annoys'),
+        from(lisa).dashTo(marge).withText('stools at'),
+        from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
+      ];
+
+      diagram.renderTo(element);
     </script>
   </body>
 </html>
