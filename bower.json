@@ -4,11 +4,13 @@
   "main": "dist/js/js-sequence-diagrams-dsl.js",
   "ignore": [
     ".gitignore",
+    ".idea",
     "Gruntfile.js",
     "README.md",
     "assets",
     "bower.json",
     "bower_components",
+    "config",
     "demo",
     "index.html",
     "nbproject",
