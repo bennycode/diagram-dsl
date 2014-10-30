@@ -1,11 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TODO supply a title</title>
+    <title>js-sequence-diagrams-dsl</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="bower_components/jQuery/dist/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/raphael/raphael-min.js"></script>
+    <script src="bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
   </head>
   <body>
-    <div>Hello World</div>
+    <div class="diagram">A->B: Message</div>
+    <script>
+      $(".diagram").sequenceDiagram({theme: 'hand'});
+    </script>
   </body>
 </html>

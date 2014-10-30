@@ -6,6 +6,16 @@ DSL for https://github.com/bramp/js-sequence-diagrams
 - [js-sequence-diagrams (gh-pages)](http://bramp.github.io/js-sequence-diagrams/)
 - [js-sequence-diagrams (repository)](https://github.com/bramp/js-sequence-diagrams/)
 
+## Getting started
+
+```bash
+# Resolve Node.JS and Bower modules
+npm install
+bower install
+```
+
+## Options
+
 ```
 Diagram.DSL
 
