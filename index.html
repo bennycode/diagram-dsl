@@ -48,10 +48,9 @@
 
           // Draw canvas
           var canvas = document.createElement('canvas');
-          canvas.id = "CursorLayer";
           canvas.width = width;
           canvas.height = height;
-          document.body.appendChild(canvas);
+          element.append(canvas);
 
           // Draw SVG on Canvas
           var outer = document.createElement('div');
@@ -69,13 +68,12 @@
 
             // Download PNG
             var anchor = document.createElement('a');
-            anchor.download = "image.png";
+            anchor.download = diagram.title + ".png";
             anchor.href = canvas.toDataURL('image/png');
-            document.body.appendChild(anchor);
+            element.append(anchor);
             anchor.click();
           };
         });
-
       };
     </script>
   </body>

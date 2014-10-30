@@ -36,12 +36,12 @@ diagram.renderTo(element);
 
 ```ini
 # Lines
-->	 Normal line         lineTo(...)
--->	 Dashed line         dashTo(...)
+->	 Normal line         lineTo(...).withText('...')
+-->	 Dashed line         dashTo(...).withText('...')
 
 # Arrows
-->>	 Open arrow          lineTo(...).andOpenArrow()
--->> Dashed open arrow   dashTo(...).andOpenArrow()
+->>	 Open arrow          lineTo(...).withText('...').andOpenArrow()
+-->> Dashed open arrow   dashTo(...).withText('...').andOpenArrow()
 ```
 
 ## Syntax samples
