@@ -1,9 +1,16 @@
-function Command(action) {
-  this.action = action;
-  this.label = undefined;
-}
+window.Diagram.DSL = window.Diagram.DSL || {};
+window.Diagram.DSL.Command = (function () {
 
-Command.prototype.withText = function (label) {
-  this.label = label;
-  return new Sequence(this);
-};
+  function Command(action) {
+    this.action = action;
+    this.label = undefined;
+  }
+
+  Command.prototype.withText = function (label) {
+    this.label = label;
+    return new Diagram.DSL.Sequence(this);
+  };
+
+  return Command;
+
+})();

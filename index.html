@@ -10,6 +10,8 @@
     <script src="bower_components/underscore/underscore-min.js"></script>
     <script src="bower_components/raphael/raphael-min.js"></script>
     <script src="bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
+    <!-- Module: Main -->
+    <script src="src/js/SequenceDiagramDSL.js"></script>
     <!-- Module -->
     <script src="src/js/Action.js"></script>
     <script src="src/js/ArrowStyle.js"></script>
@@ -18,36 +20,37 @@
     <script src="src/js/LineStyle.js"></script>
     <script src="src/js/Sequence.js"></script>
     <script src="src/js/SequenceDiagram.js"></script>
-    <script src="src/js/SequenceDiagramDSL.js"></script>
   </head>
   <body>
     <div id="mySequenceDiagram"></div>
     <button id="saveAsPng">Save as PNG</button>
     <script>
-      $(document).ready(function () {
-        var bart = 'Bart';
-        var homer = 'Homer';
-        var lisa = 'Lisa';
-        var marge = 'Marge';
+      jQuery(document).ready(function ($) {
+        with (window.Diagram.DSL) {
+          var bart = 'Bart';
+          var homer = 'Homer';
+          var lisa = 'Lisa';
+          var marge = 'Marge';
 
-        var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramStyle.handDrawn);
-        var element = $('#mySequenceDiagram');
+          var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramStyle.HAND_DRAWN);
+          var element = $('#mySequenceDiagram');
 
-        diagram.sequences = [
-          from(bart).lineTo(homer).withText('annoys'),
-          from(homer).lineTo(bart).withText('chokes'),
-          from(bart).dashTo(lisa).withText('annoys'),
-          from(lisa).dashTo(marge).withText('stools at'),
-          from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
-        ];
+          diagram.sequences = [
+            from(bart).lineTo(homer).withText('annoys'),
+            from(homer).lineTo(bart).withText('chokes'),
+            from(bart).dashTo(lisa).withText('annoys'),
+            from(lisa).dashTo(marge).withText('stools at'),
+            from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
+          ];
 
-        diagram.renderTo(element);
+          diagram.renderTo(element);
 
-        // Save as PNG
-        $('#saveAsPng').click(function (event) {
-          event.preventDefault();
-          diagram.saveAsPng();
-        });
+          // Save as PNG
+          $('#saveAsPng').click(function (event) {
+            event.preventDefault();
+            diagram.saveAsPng();
+          });
+        }
       });
     </script>
   </body>

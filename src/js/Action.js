@@ -1,16 +1,23 @@
-function Action(actorA) {
-  this.actorA = actorA;
-  this.actorB = undefined;
-  this.lineStyle = LineStyle.default;
-}
+window.Diagram.DSL = window.Diagram.DSL || {};
+window.Diagram.DSL.Action = (function () {
 
-Action.prototype.lineTo = function (actorB) {
-  this.actorB = actorB;
-  return new Command(this);
-};
+  function Action(actorA) {
+    this.actorA = actorA;
+    this.actorB = undefined;
+    this.lineStyle = Diagram.DSL.LineStyle.DEFAULT;
+  }
 
-Action.prototype.dashTo = function (actorB) {
-  this.actorB = actorB;
-  this.lineStyle = LineStyle.dashed;
-  return new Command(this);
-};
+  Action.prototype.lineTo = function (actorB) {
+    this.actorB = actorB;
+    return new Diagram.DSL.Command(this);
+  };
+
+  Action.prototype.dashTo = function (actorB) {
+    this.actorB = actorB;
+    this.lineStyle = Diagram.DSL.LineStyle.DASHED;
+    return new Diagram.DSL.Command(this);
+  };
+
+  return Action;
+
+})();

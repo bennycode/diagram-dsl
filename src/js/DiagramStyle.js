@@ -1,4 +1,5 @@
-var DiagramStyle = {
-  default: 'simple',
-  handDrawn: 'hand'
+window.Diagram.DSL = window.Diagram.DSL || {};
+window.Diagram.DSL.DiagramStyle = {
+  DEFAULT: 'simple',
+  HAND_DRAWN: 'hand'
 };

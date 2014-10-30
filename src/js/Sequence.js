@@ -1,18 +1,25 @@
-function Sequence(command) {
-  this.command = command;
-  this.arrowStyle = ArrowStyle.default;
-}
+window.Diagram.DSL = window.Diagram.DSL || {};
+window.Diagram.DSL.Sequence = (function () {
 
-Sequence.prototype.andOpenArrow = function () {
-  this.arrowStyle = ArrowStyle.open;
-  return this;
-};
+  function Sequence(command) {
+    this.command = command;
+    this.arrowStyle = Diagram.DSL.ArrowStyle.DEFAULT;
+  }
 
-Sequence.prototype.toString = function () {
-  return this.command.action.actorA +
-    this.command.action.lineStyle +
-    this.arrowStyle +
-    this.command.action.actorB +
-    ': ' +
-    this.command.label;
-};
+  Sequence.prototype.andOpenArrow = function () {
+    this.arrowStyle = Diagram.DSL.ArrowStyle.OPEN;
+    return this;
+  };
+
+  Sequence.prototype.toString = function () {
+    return this.command.action.actorA +
+      this.command.action.lineStyle +
+      this.arrowStyle +
+      this.command.action.actorB +
+      ': ' +
+      this.command.label;
+  };
+
+  return Sequence;
+
+})();

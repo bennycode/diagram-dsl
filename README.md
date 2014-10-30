@@ -66,3 +66,7 @@ npm install
 bower install
 ```
 
+## Nice reads
+- [Composing DSLs in JavaScript](https://blog.jcoglan.com/2008/03/21/composing-dsls-in-javascript/)
+- [Saving Browser-based SVGs as Images](http://spin.atomicobject.com/2014/01/21/convert-svg-to-png/)
+
