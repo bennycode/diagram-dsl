@@ -3,6 +3,9 @@ js-sequence-diagrams-dsl
 
 DSL for https://github.com/bramp/js-sequence-diagrams
 
+- [js-sequence-diagrams (gh-pages)](http://bramp.github.io/js-sequence-diagrams/)
+- [js-sequence-diagrams (repository)](https://github.com/bramp/js-sequence-diagrams/)
+
 ```
 Diagram.DSL
 
