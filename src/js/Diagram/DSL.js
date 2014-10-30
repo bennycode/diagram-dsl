@@ -2,7 +2,7 @@ window.Diagram = Diagram;
 
 if (typeof window.Diagram === "undefined") {
 
-  console.warn('Cannot find "window.Diagram" library. Did you forget to include it?');
+  console.warn('Cannot find "window.Diagram" library. Did you forgot to include it?');
   console.warn('You can get it here: https://github.com/bramp/js-sequence-diagrams/');
 
 } else {
