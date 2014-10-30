@@ -1,18 +1,9 @@
-js-sequence-diagrams-dsl
-========================
+# js-sequence-diagrams-dsl
 
 DSL for https://github.com/bramp/js-sequence-diagrams
 
 - [js-sequence-diagrams (gh-pages)](http://bramp.github.io/js-sequence-diagrams/)
 - [js-sequence-diagrams (repository)](https://github.com/bramp/js-sequence-diagrams/)
-
-## Getting started
-
-```bash
-# Resolve Node.JS and Bower modules
-npm install
-bower install
-```
 
 ## Demo
 
@@ -40,23 +31,36 @@ diagram.renderTo(element);
 
 ### Result
 
+
 ## Options
 
+```ini
+# Lines
+->	 Normal line         lineTo(...)
+-->	 Dashed line         dashTo(...)
+
+# Arrows
+->>	 Open arrow          lineTo(...).andOpenArrow()
+-->> Dashed open arrow   dashTo(...).andOpenArrow()
 ```
-Diagram.DSL
 
-->	Normal line		(lineTo)
--->	Dashed line		(dashTo)
+## Syntax samples
 
-(withText)
+```js
+// Solid lines
+from('A').lineTo('B').withText('Hello World');
+from('A').lineTo('B').withText('Hello World').andOpenArrow();
 
-->>	Open arrow		(andOpenArrow)
--->>	Dashed open arrow	(andDashedOpenArrow)
-
-
-var a = 'Andrew';
-var b = 'China';
-
-from(a).lineTo(b).withText('Hello World');
-from(a).lineTo(b).withText('Hello World').andOpenArrow();
+// Dashed lines
+from('A').dashTo('B').withText('Hello World');
+from('A').dashTo('B').withText('Hello World').andOpenArrow();
 ```
+
+## Build project
+
+```bash
+# Resolve Node.JS and Bower modules
+npm install
+bower install
+```
+
