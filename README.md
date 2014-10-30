@@ -2,6 +2,7 @@
 
 DSL for https://github.com/bramp/js-sequence-diagrams
 
+- [Demo](https://welovecoding.github.io/js-sequence-diagrams-dsl)
 - [js-sequence-diagrams (gh-pages)](http://bramp.github.io/js-sequence-diagrams/)
 - [js-sequence-diagrams (repository)](https://github.com/bramp/js-sequence-diagrams/)
 
@@ -31,6 +32,7 @@ diagram.renderTo(element);
 
 ### Result
 
+![Result screenshot](http://welovecoding.github.io/js-sequence-diagrams-dsl/demo/demo.png)
 
 ## Options
 

@@ -15,7 +15,6 @@
     <button id="saveAsPng">Save as PNG</button>
     <script>
       window.onload = function () {
-
         var bart = 'Bart';
         var homer = 'Homer';
         var lisa = 'Lisa';
@@ -37,42 +36,7 @@
         // Save as PNG
         $('#saveAsPng').click(function (event) {
           event.preventDefault();
-
-          // Get dimension
-          var svgElement = element.children(0).get(0);
-          var svgWidth = svgElement.getBoundingClientRect().width;
-          var svgHeight = svgElement.getBoundingClientRect().height;
-
-          var width = Math.ceil(svgWidth);
-          var height = Math.ceil(svgHeight);
-
-          // Draw canvas
-          var canvas = document.createElement('canvas');
-          canvas.width = width;
-          canvas.height = height;
-          element.append(canvas);
-
-          // Draw SVG on Canvas
-          var outer = document.createElement('div');
-          outer.appendChild(svgElement.cloneNode(true));
-          var xml = outer.innerHTML;
-          var unicodeXml = window.btoa(unescape(encodeURIComponent(xml)));
-
-          var image = new Image();
-          image.src = 'data:image/svg+xml;base64,' + unicodeXml;
-          image.onload = function () {
-            var context = canvas.getContext('2d');
-            context.fillStyle = "#FFF";
-            context.fillRect(0, 0, width, height);
-            context.drawImage(image, 0, 0);
-
-            // Download PNG
-            var anchor = document.createElement('a');
-            anchor.download = diagram.title + ".png";
-            anchor.href = canvas.toDataURL('image/png');
-            element.append(anchor);
-            anchor.click();
-          };
+          diagram.saveAsPng();
         });
       };
     </script>
