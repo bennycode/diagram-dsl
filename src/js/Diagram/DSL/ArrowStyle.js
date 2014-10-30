@@ -1,5 +1,6 @@
 window.Diagram.DSL = window.Diagram.DSL || {};
-window.Diagram.DSL.ArrowStyle = {
+window.Diagram.DSL.Style = window.Diagram.DSL.Style || {};
+window.Diagram.DSL.Style.ArrowStyle = {
   DEFAULT: '>',
   OPEN: '>>'
 };
