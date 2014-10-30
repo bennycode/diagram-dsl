@@ -58,6 +58,7 @@ module.exports = function (grunt) {
   /* Distribution */
   grunt.registerTask('module-dist-coffee', ['clean', 'coffee:dist']);
   grunt.registerTask('module-dist-js', ['module-build-js', 'uglify']);
+  grunt.registerTask('module-dist-all', ['module-dist-js']);
 
   /* Test */
   grunt.registerTask('module-test-coffee', ['module-dist-coffee', 'jasmine:dist']);

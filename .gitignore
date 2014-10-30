@@ -1,3 +1,20 @@
-/bower_components/
-/nbproject/private/
-/node_modules/
+# https://www.gitignore.io/
+
+# Node.JS & Bower modules
+/bower_components
+/node_modules
+
+# NetBeans IDE
+# http://stackoverflow.com/a/1267580/451634
+/nbproject/private
+/build
+/nbbuild
+/dist
+/nbdist
+nbactions.xml
+nb-configuration.xml
+
+# IntelliJ
+# http://devnet.jetbrains.com/docs/DOC-1186
+/.idea/workspace.xml
+/.idea/tasks.xml
