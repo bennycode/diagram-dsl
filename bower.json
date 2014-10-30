@@ -5,17 +5,17 @@
   "ignore": [
     ".gitignore",
     ".idea",
-    "Gruntfile.js",
-    "README.md",
     "assets",
     "bower.json",
     "bower_components",
     "config",
     "demo",
+    "Gruntfile.js",
     "index.html",
     "nbproject",
     "node_modules",
     "package.json",
+    "README.md",
     "test"
   ],
   "dependencies": {
