@@ -13,7 +13,7 @@
 
 ### 1. Add JavaScript libraries
 
-```js
+```html
 <script src="jQuery/jquery.min.js"></script>
 <script src="underscore/underscore-min.js"></script>
 <script src="raphael/raphael-min.js"></script>
