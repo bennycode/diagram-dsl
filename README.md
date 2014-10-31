@@ -54,10 +54,29 @@ diagram.saveAsPng();
 
 ## Syntax samples
 
+- **[Create diagram](#constructor)**
 - **[Normal line](#lineTo)** `->`
 - **[Dashed line](#dashTo)** `-->`
 - **[Open arrow](#andOpenArrow)** `->>`
 - **[Dashed open arrow](#dashToAndOpenArrow)** `->>`
+- **[Render diagram](#render)**
+
+### <a name="constructor"></a> Create diagram
+
+```js
+// Create a standard diagram
+var diagram = new SequenceDiagram();
+
+// Create a diagram with a title
+var diagram = new SequenceDiagram('Title');
+
+// Create a diagram with a title and default theme
+var diagram = new SequenceDiagram('Title', DiagramTheme.DEFAULT);
+
+// Create a hand-drawn diagram with a title
+var diagram = new SequenceDiagram('Title', DiagramTheme.HAND_DRAWN);
+
+```
 
 ### <a name="lineTo"></a> Normal line
 
@@ -83,12 +102,29 @@ from('A').lineTo('B').withText('Hello World').andOpenArrow()
 from('A').dashTo('B').withText('Hello World').andOpenArrow()
 ```
 
-## Build project
+### <a name="render"></a> Render diagram
+
+After all sequences have been added to a Diagram, it can be rendered to a DOM element with:
+
+```js
+diagram.renderTo(element);
+```
+
+If it has been rendered to a DOM elment, than it also can be exported as a PNG image:
+
+```js
+diagram.saveAsPng();
+```
+
+## Build & run project
 
 ```bash
-# Resolve Node.JS and Bower modules
+# First time run
 npm install
 bower install
+
+# After that just do
+grunt default
 ```
 
 ## Nice reads
