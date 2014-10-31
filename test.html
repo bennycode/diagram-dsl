@@ -24,10 +24,8 @@
     <div id="diagram"></div>
     <button id="saveAsPng">Save as PNG</button>
     <script>
-      var a = 'Bart';
-      var b = 'Homer';
-      var c = 'Lisa';
-      var d = 'Marge';
+      var a = 'A';
+      var b = 'B';
 
       var element = $('#diagram');
 
@@ -36,12 +34,9 @@
         var diagram = new SequenceDiagram('My Diagram', Theme.HAND_DRAWN);
         diagram.renderTo(element);
 
-        from(a).lineTo(b).withText('Hello').on(diagram);
-        from(a).lineTo(c).withText('World').on(diagram);
-        from(a).dashTo(d).withText('!').on(diagram);
-        from(d).lineTo(a).withText('Return').on(diagram);
-
-        diagram.saveAsPng();
+        from(a).dashTo(b).withText('Hello World!').andOpenArrow().on(diagram);
+        from(b).lineTo(a).withText('Hello World!').on(diagram);
+        from(a).lineTo('Clara').withText('Hello World!').on(diagram);
 
       }
     </script>
