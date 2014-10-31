@@ -132,10 +132,6 @@ Or even simpler:
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
 ```
 
-## Drop the namespace
-
-
-
 ## Build & run the project
 
 If you want to extend **Diagram.DSL** or contribute to the project, then you need to build it first. To resolve all the Node.JS and Bower modules, you have to run these commands from the project's directory:
