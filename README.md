@@ -25,7 +25,7 @@
     var lisa = 'Lisa';
     var marge = 'Marge';
 
-    var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramStyle.HAND_DRAWN);
+    var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramTheme.HAND_DRAWN);
     var element = $('#diagram');
 
     diagram.sequences = [

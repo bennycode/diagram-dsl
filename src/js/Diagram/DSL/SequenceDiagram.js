@@ -3,7 +3,7 @@ window.Diagram.DSL.SequenceDiagram = (function () {
   function SequenceDiagram(title, style) {
     this.title = title;
     this.sequences = [];
-    this.style = Diagram.DSL.DiagramStyle.DEFAULT;
+    this.style = Diagram.DSL.DiagramTheme.DEFAULT;
     this.element = undefined;
 
     if (style) {

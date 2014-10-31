@@ -87,7 +87,7 @@
   return Command;
 
 })();
-;window.Diagram.DSL.DiagramStyle = {
+;window.Diagram.DSL.DiagramTheme = {
   DEFAULT: 'simple',
   HAND_DRAWN: 'hand'
 };
@@ -124,7 +124,7 @@
   function SequenceDiagram(title, style) {
     this.title = title;
     this.sequences = [];
-    this.style = Diagram.DSL.DiagramStyle.DEFAULT;
+    this.style = Diagram.DSL.DiagramTheme.DEFAULT;
     this.element = undefined;
 
     if (style) {

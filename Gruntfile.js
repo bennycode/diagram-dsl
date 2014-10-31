@@ -68,5 +68,5 @@ module.exports = function (grunt) {
   grunt.registerTask('module-run', ['clean', 'watch']);
 
   /* Default goal */
-  grunt.registerTask('default', ['module-run']);
+  grunt.registerTask('default', ['module-dist-all']);
 };
