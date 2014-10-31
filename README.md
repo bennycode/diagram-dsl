@@ -43,7 +43,7 @@
 
 ### Result
 
-![Result screenshot](http://welovecoding.github.io/js-sequence-diagrams-dsl/demo/demo.png)
+![Result screenshot](http://welovecoding.github.io/diagrams-dsl/demo/demo.png)
 
 If you want to save it as a PNG image:
 

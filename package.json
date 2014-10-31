@@ -1,5 +1,5 @@
 {
-  "name": "js-sequence-diagrams-dsl",
+  "name": "diagrams-dsl",
   "devDependencies": {
     "grunt": "~0",
     "grunt-contrib-clean": "~0",
@@ -13,6 +13,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/welovecoding/js-sequence-diagrams-dsl"
+    "url": "git://github.com/welovecoding/diagrams-dsl"
   }
 }

@@ -1,6 +1,6 @@
 ;
 (function () {
-  window.Diagram = Diagram;
+  window.Diagram = window.Diagram || undefined;
 
   if (typeof window.Diagram === "undefined") {
 

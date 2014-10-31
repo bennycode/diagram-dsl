@@ -1,6 +1,6 @@
 {
-  "name": "js-sequence-diagrams-dsl",
-  "main": "dist/js/js-sequence-diagrams-dsl.js",
+  "name": "diagrams-dsl",
+  "main": "dist/js/diagrams-dsl.js",
   "ignore": [
     ".gitignore",
     ".idea",
@@ -25,6 +25,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/welovecoding/js-sequence-diagrams-dsl"
+    "url": "git://github.com/welovecoding/diagrams-dsl"
   }
 }
