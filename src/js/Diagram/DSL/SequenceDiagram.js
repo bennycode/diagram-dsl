@@ -1,4 +1,4 @@
-window.Diagram.DSL.SequenceDiagram = (function () {
+Diagram.DSL.SequenceDiagram = (function () {
 
   function SequenceDiagram(title, style) {
     this.title = title;
@@ -10,6 +10,20 @@ window.Diagram.DSL.SequenceDiagram = (function () {
       this.style = style;
     }
   }
+
+  /**
+   * Add a sequence to an existing and already rendered diagram.
+   * Should be done from "Diagram.DSL.Sequence.on".
+   *
+   * @param {Diagram.DSL.Sequence} sequence
+   * @returns {Diagram.DSL.SequenceDiagram}
+   */
+  SequenceDiagram.prototype.addSequence = function (sequence) {
+    this.sequences.push(sequence);
+    this.renderTo();
+
+    return this;
+  };
 
   SequenceDiagram.prototype.render = function () {
     var output = '';
@@ -27,10 +41,15 @@ window.Diagram.DSL.SequenceDiagram = (function () {
   };
 
   SequenceDiagram.prototype.renderTo = function (element) {
-    this.element = element;
+    if (element) {
+      this.element = element;
+    }
+
     var output = this.render();
-    element.html(output);
-    element.sequenceDiagram({theme: this.style});
+    this.element.html(output);
+    this.element.sequenceDiagram({theme: this.style});
+
+    return this;
   };
 
   SequenceDiagram.prototype.saveAsPng = function () {

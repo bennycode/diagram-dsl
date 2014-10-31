@@ -1,4 +1,4 @@
-window.Diagram.DSL.Sequence = (function () {
+Diagram.DSL.Sequence = (function () {
 
   function Sequence(command) {
     this.command = command;
@@ -17,6 +17,16 @@ window.Diagram.DSL.Sequence = (function () {
       this.command.action.actorB +
       ': ' +
       this.command.label;
+  };
+
+  /**
+   * Adds another path to a rendered diagram.
+   *
+   * @param {Diagram.DSL.SequenceDiagram} diagram
+   * @returns {Diagram.DSL.SequenceDiagram}
+   */
+  Sequence.prototype.on = function (diagram) {
+    return diagram.addSequence(this);
   };
 
   return Sequence;

@@ -43,6 +43,11 @@
 
         diagram.renderTo(element);
 
+        from(bart).dashTo(homer).withText('Meep').on(diagram);
+        from(bart).dashTo(lisa).withText('Meep Meep').on(diagram);
+        from(bart).dashTo(marge).withText('Meep Meep Meep').on(diagram);
+
+
         // Save as PNG
         $('#saveAsPng').click(function (event) {
           event.preventDefault();

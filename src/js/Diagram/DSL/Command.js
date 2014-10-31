@@ -1,4 +1,4 @@
-window.Diagram.DSL.Command = (function () {
+Diagram.DSL.Command = (function () {
 
   function Command(action) {
     this.action = action;

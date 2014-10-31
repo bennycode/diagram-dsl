@@ -1,4 +1,4 @@
-window.Diagram.DSL.Action = (function () {
+Diagram.DSL.Action = (function () {
 
   function Action(actorA) {
     this.actorA = actorA;

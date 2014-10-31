@@ -1,4 +1,4 @@
-window.Diagram.DSL.LineStyle = {
+Diagram.DSL.LineStyle = {
   DEFAULT: '-',
   DASHED: '--'
 };

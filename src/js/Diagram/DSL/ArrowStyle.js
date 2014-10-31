@@ -1,4 +1,4 @@
-window.Diagram.DSL.ArrowStyle = {
+Diagram.DSL.ArrowStyle = {
   DEFAULT: '>',
   OPEN: '>>'
 };
