@@ -99,7 +99,7 @@ Check how the arrow of the second path is renderd:
 
 ## Add title
 
-If you want to have a title for your diagram, then you should have a title. Just instantiate your diagram object with a `String` variable:
+If you want to have a title for your diagram, then you should have a title. Just instantiate your diagram object with a `String` literal:
 
 ```js
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
@@ -131,6 +131,159 @@ Or even simpler:
 ```js
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
 ```
+
+## Draw with statement collection
+
+You can also define your drawing statements before rendering the diagram. But first let's see how our sample code looks like at the moment:
+
+```js
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
+diagram.renderTo($('#diagram'));
+
+Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
+Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow().on(diagram);
+Diagram.DSL.from('A').dashTo('D').withText('!').on(diagram);
+```
+
+We can easily turn the above code into this one:
+
+```js
+// Create diagram
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
+
+// Define paths
+diagram.sequences = [
+  Diagram.DSL.from('A').lineTo('B').withText('Hello'),
+  Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow(),
+  Diagram.DSL.from('A').dashTo('D').withText('!')
+];
+
+// Render diagram
+diagram.renderTo($('#diagram'));
+```
+
+The difference is now, that you initialize the `sequences` array instead of writing single statements to draw the path.
+
+You can also combine the `sequences` approach with the statements approach. So let us add a fourth path:
+
+```js
+// Create diagram
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
+
+// Define paths
+diagram.sequences = [
+  Diagram.DSL.from('A').lineTo('B').withText('Hello'),
+  Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow(),
+  Diagram.DSL.from('A').dashTo('D').withText('!')
+];
+
+// Render diagram
+diagram.renderTo($('#diagram'));
+
+// Add another path and automatically render the update
+Diagram.DSL.from('D').lineTo('A').withText('Return').on(diagram);
+```
+
+The result will be:
+
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-8.png)
+
+## Variables
+
+Now that we have `A`, `B`, `C` and `D` it's time to use variables to easily rename those paths. Let's do it:
+
+```js
+var a = 'A';
+var b = 'B';
+var c = 'C';
+var d = 'D';
+
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
+diagram.renderTo($('#diagram'));
+
+Diagram.DSL.from(a).lineTo(b).withText('Hello').on(diagram);
+Diagram.DSL.from(a).lineTo(c).withText('World').on(diagram);
+Diagram.DSL.from(a).dashTo(d).withText('!').on(diagram);
+Diagram.DSL.from(d).lineTo(a).withText('Return').on(diagram);
+```
+
+We can also put the output element into a variable:
+
+```js
+var a = 'A';
+var b = 'B';
+var c = 'C';
+var d = 'D';
+
+var element = $('#diagram');
+
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
+diagram.renderTo(element);
+
+Diagram.DSL.from(a).lineTo(b).withText('Hello').on(diagram);
+Diagram.DSL.from(a).lineTo(c).withText('World').on(diagram);
+Diagram.DSL.from(a).dashTo(d).withText('!').on(diagram);
+Diagram.DSL.from(d).lineTo(a).withText('Return').on(diagram);
+```
+
+Using variables is quite comfortable, because we can rename every actor in our diagram in seconds:
+
+```js
+var a = 'Bart';
+var b = 'Homer';
+var c = 'Lisa';
+var d = 'Marge';
+
+var element = $('#diagram');
+
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
+diagram.renderTo(element);
+
+Diagram.DSL.from(a).lineTo(b).withText('Hello').on(diagram);
+Diagram.DSL.from(a).lineTo(c).withText('World').on(diagram);
+Diagram.DSL.from(a).dashTo(d).withText('!').on(diagram);
+Diagram.DSL.from(d).lineTo(a).withText('Return').on(diagram);
+```
+
+In the blink of an eye, we got this:
+
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-9.png)
+
+
+## Save diagram as bitmap image (PNG)
+
+Now that you learned almost everything about **Diagram.DSL**, it's time to save your diagram as a PNG image. Simply do:
+
+```js
+diagram.saveAsPng();
+```
+
+That's it! Your browser will ask you where to save the image.
+
+## Drop Diagram.DSL namespace
+
+In our examples, we made much use of the `Diagram.DSL.` syntax. You can drop it, using the `with` keyword in JavaScript. Your code can then look like this:
+
+```js
+with (window.Diagram.DSL) {
+
+  var diagram = new SequenceDiagram('My Diagram', Theme.HAND_DRAWN);
+  diagram.renderTo(element);
+
+  from(a).lineTo(b).withText('Hello').on(diagram);
+  from(a).lineTo(c).withText('World').on(diagram);
+  from(a).dashTo(d).withText('!').on(diagram);
+  from(d).lineTo(a).withText('Return').on(diagram);
+
+  diagram.saveAsPng();
+
+}
+```
+
+Isn't that cool!?  
+
+So, we wish you lots of fun with our library. 
+Don't hasitate to ask question about it or write feature request.
 
 ## Build & run the project
 
