@@ -1,4 +1,4 @@
-Diagram.DSL.DiagramTheme = {
+Diagram.DSL.Theme = {
   DEFAULT: 'simple',
   HAND_DRAWN: 'hand'
 };

@@ -9,125 +9,151 @@
 - Possibility to save your diagram as a **bitmap image** (PNG)
 - Possibility to **dynamically** create your sequences
 
-## Quick Example
+## Introduction
 
-### Code
+### 1. Add JavaScript libraries
+
+```js
+<script src="jQuery/jquery.min.js"></script>
+<script src="underscore/underscore-min.js"></script>
+<script src="raphael/raphael-min.js"></script>
+<script src="js-sequence-diagrams/sequence-diagram-min.js"></script>
+<script src="diagrams-dsl/diagrams-dsl.min.js"></script>
+```
+
+### 2. Add a DOM element
 
 ```html
-<!-- HTML -->
 <div id="diagram"></div>
 
-<!-- JavaScript -->
-<script>
-  with (Diagram.DSL) {
-    var bart = 'Bart';
-    var homer = 'Homer';
-    var lisa = 'Lisa';
-    var marge = 'Marge';
-
-    var diagram = new SequenceDiagram('A Day At The Simpsons', DiagramTheme.HAND_DRAWN);
-    var element = $('#diagram');
-
-    diagram.sequences = [
-      from(bart).lineTo(homer).withText('annoys'),
-      from(homer).lineTo(bart).withText('chokes'),
-      from(bart).dashTo(lisa).withText('annoys'),
-      from(lisa).dashTo(marge).withText('stools at'),
-      from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
-    ];
-
-    diagram.renderTo(element);
-  }
-</script>
 ```
 
-### Result
-
-![Result screenshot](http://welovecoding.github.io/diagrams-dsl/demo/demo.png)
-
-If you want to save it as a PNG image:
+### 3. Draw your diagram
 
 ```js
-diagram.saveAsPng();
+// Setup diagram
+var diagram = new Diagram.DSL.SequenceDiagram();
+diagram.renderTo($('#diagram'));
+
+// Draw a path
+Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
 ```
 
+### 4. There is no step four!
 
-## Syntax samples
+Just look at your result:
 
-- **[Create diagram](#constructor)**
-- **[Normal line](#lineTo)** `->`
-- **[Dashed line](#dashTo)** `-->`
-- **[Open arrow](#andOpenArrow)** `->>`
-- **[Dashed open arrow](#dashToAndOpenArrow)** `->>`
-- **[Render diagram](#render)**
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-1.png)
 
-### <a name="constructor"></a> Create diagram
+## Do more with it
+
+### Add more paths
+
+If you want to add another line to your diagram, then just draw a second path:
 
 ```js
-// Create a standard diagram
-var diagram = new SequenceDiagram();
-
-// Create a diagram with a title
-var diagram = new SequenceDiagram('Title');
-
-// Create a diagram with a title and default theme
-var diagram = new SequenceDiagram('Title', DiagramTheme.DEFAULT);
-
-// Create a hand-drawn diagram with a title
-var diagram = new SequenceDiagram('Title', DiagramTheme.HAND_DRAWN);
-
+// Draw another path
+Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
 ```
 
-### <a name="lineTo"></a> Normal line
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-2.png)
+
+You can also add a third one, which would make it to:
 
 ```js
-from('A').lineTo('B').withText('Hello World')
+var diagram = new Diagram.DSL.SequenceDiagram();
+diagram.renderTo($('#diagram'));
+
+Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
+Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
+Diagram.DSL.from('A').lineTo('D').withText('!').on(diagram);
 ```
 
-### <a name="dashTo"></a> Dashed line
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-3.png)
+
+### Draw dashed lines
+
+You can use `dashTo` instead of `lineTo` if you want to draw dashed lines:
 
 ```js
-from('A').dashTo('B').withText('Hello World')
+Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
+Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
+Diagram.DSL.from('A').dashTo('D').withText('!').on(diagram);
 ```
 
-### <a name="andOpenArrow"></a> Open arrow
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-4.png)
+
+## Draw open arrows
+
+If you want to have an opened arrow instead of a filled one, then use the `andOpenArrow()` function after calling `withText`. It would look like this:
 
 ```js
-from('A').lineTo('B').withText('Hello World').andOpenArrow()
+Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
+Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow().on(diagram);
+Diagram.DSL.from('A').dashTo('D').withText('!').on(diagram);
 ```
 
-### <a name="dashToAndOpenArrow"></a> Dashed open arrow
+Check how the arrow of the second path is renderd:
+
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-5.png)
+
+## Add title
+
+If you want to have a title for your diagram, then you should have a title. Just instantiate your diagram object with a `String` variable:
 
 ```js
-from('A').dashTo('B').withText('Hello World').andOpenArrow()
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
 ```
 
-### <a name="render"></a> Render diagram
+You will get something like this:
 
-After all sequences have been added to a Diagram, it can be rendered to a DOM element with:
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-6.png)
+
+## Change theme
+
+Uh, did we mention, that you can draw your diagram in a different style? At the moment we support `Theme.HAND_DRAWN` and `Theme.DEFAULT`. You used already the default theme, so let's see how the hand-drawn theme looks like:
 
 ```js
-diagram.renderTo(element);
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
 ```
 
-If it has been rendered to a DOM elment, than it also can be exported as a PNG image:
+![Result](http://welovecoding.github.io/diagrams-dsl/demo/intro-7.png)
+
+If you want to switch back, just use:
+
 
 ```js
-diagram.saveAsPng();
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.DEFAULT);
 ```
 
-## Build & run project
+Or even simpler:
+
+```js
+var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
+```
+
+## Drop the namespace
+
+
+
+## Build & run the project
+
+If you want to extend **Diagram.DSL** or contribute to the project, then you need to build it first. To resolve all the Node.JS and Bower modules, you have to run these commands from the project's directory:
 
 ```bash
-# First time run
 npm install
 bower install
+```
 
-# After that just do
+You only need to do the previous step once (or when new dependencies are added to the project). After that you can just go with:
+
+```
 grunt default
 ```
 
-## Nice reads
-- [Composing DSLs in JavaScript](https://blog.jcoglan.com/2008/03/21/composing-dsls-in-javascript/)
-- [Saving Browser-based SVGs as Images](http://spin.atomicobject.com/2014/01/21/convert-svg-to-png/)
+Or even simpler:
+
+```
+grunt
+```
 

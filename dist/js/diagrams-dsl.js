@@ -46,7 +46,7 @@
 
   }
 })();
-;window.Diagram.DSL.Action = (function () {
+;Diagram.DSL.Action = (function () {
 
   function Action(actorA) {
     this.actorA = actorA;
@@ -68,11 +68,11 @@
   return Action;
 
 })();
-;window.Diagram.DSL.ArrowStyle = {
+;Diagram.DSL.ArrowStyle = {
   DEFAULT: '>',
   OPEN: '>>'
 };
-;window.Diagram.DSL.Command = (function () {
+;Diagram.DSL.Command = (function () {
 
   function Command(action) {
     this.action = action;
@@ -87,15 +87,15 @@
   return Command;
 
 })();
-;window.Diagram.DSL.DiagramTheme = {
+;Diagram.DSL.Theme = {
   DEFAULT: 'simple',
   HAND_DRAWN: 'hand'
 };
-;window.Diagram.DSL.LineStyle = {
+;Diagram.DSL.LineStyle = {
   DEFAULT: '-',
   DASHED: '--'
 };
-;window.Diagram.DSL.Sequence = (function () {
+;Diagram.DSL.Sequence = (function () {
 
   function Sequence(command) {
     this.command = command;
@@ -116,21 +116,45 @@
       this.command.label;
   };
 
+  /**
+   * Adds another path to a rendered diagram.
+   *
+   * @param {Diagram.DSL.SequenceDiagram} diagram
+   * @returns {Diagram.DSL.SequenceDiagram}
+   */
+  Sequence.prototype.on = function (diagram) {
+    return diagram.addSequence(this);
+  };
+
   return Sequence;
 
 })();
-;window.Diagram.DSL.SequenceDiagram = (function () {
+;Diagram.DSL.SequenceDiagram = (function () {
 
   function SequenceDiagram(title, style) {
     this.title = title;
     this.sequences = [];
-    this.style = Diagram.DSL.DiagramTheme.DEFAULT;
+    this.style = Diagram.DSL.Theme.DEFAULT;
     this.element = undefined;
 
     if (style) {
       this.style = style;
     }
   }
+
+  /**
+   * Add a sequence to an existing and already rendered diagram.
+   * Should be done from "Diagram.DSL.Sequence.on".
+   *
+   * @param {Diagram.DSL.Sequence} sequence
+   * @returns {Diagram.DSL.SequenceDiagram}
+   */
+  SequenceDiagram.prototype.addSequence = function (sequence) {
+    this.sequences.push(sequence);
+    this.renderTo();
+
+    return this;
+  };
 
   SequenceDiagram.prototype.render = function () {
     var output = '';
@@ -148,10 +172,15 @@
   };
 
   SequenceDiagram.prototype.renderTo = function (element) {
-    this.element = element;
+    if (element) {
+      this.element = element;
+    }
+
     var output = this.render();
-    element.html(output);
-    element.sequenceDiagram({theme: this.style});
+    this.element.html(output);
+    this.element.sequenceDiagram({theme: this.style});
+
+    return this;
   };
 
   SequenceDiagram.prototype.saveAsPng = function () {
