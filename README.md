@@ -19,7 +19,7 @@
 
 <!-- JavaScript -->
 <script>
-  with (window.Diagram.DSL) {
+  with (Diagram.DSL) {
     var bart = 'Bart';
     var homer = 'Homer';
     var lisa = 'Lisa';
