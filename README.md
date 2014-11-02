@@ -14,7 +14,7 @@
 ### 1. Add JavaScript libraries
 
 ```html
-<script src="jQuery/jquery.min.js"></script>
+<script src="jquery/jquery.min.js"></script>
 <script src="underscore/underscore-min.js"></script>
 <script src="raphael/raphael-min.js"></script>
 <script src="js-sequence-diagrams/sequence-diagram-min.js"></script>
