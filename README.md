@@ -14,11 +14,11 @@
 ### 1. Add JavaScript libraries
 
 ```html
-<script src="jQuery/jquery.min.js"></script>
-<script src="underscore/underscore-min.js"></script>
-<script src="raphael/raphael-min.js"></script>
-<script src="js-sequence-diagrams/sequence-diagram-min.js"></script>
-<script src="diagrams-dsl/diagrams-dsl.min.js"></script>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="bower_components/underscore/underscore-min.js"></script>
+<script src="bower_components/raphael/raphael-min.js"></script>
+<script src="bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
+<script src="bower_components/diagrams-dsl/dist/js/diagrams-dsl.js"></script>
 ```
 
 ### 2. Add a DOM element
