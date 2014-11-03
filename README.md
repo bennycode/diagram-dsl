@@ -1,9 +1,11 @@
 # Diagrams.DSL
 
-**Diagrams.DSL** adds some nice convenience methods to the famous [**JS Sequence Diagrams**](https://github.com/bramp/js-sequence-diagrams) library, which turns text into UML sequence diagrams. With **Diagrams.DSL** you can use code statements instead of string commands, to draw your sequence diagrams. It also gives you the possibility to save your sequence diagram as a PNG image.
+**Diagrams.DSL** adds some nice convenience methods to the famous [**JS Sequence Diagrams**](https://github.com/bramp/js-sequence-diagrams) library by [Andrew Brampton](https://github.com/bramp), which turns text into UML sequence diagrams. 
+
+With **Diagrams.DSL**, you can use code statements instead of string commands, to draw your sequence diagrams. It also gives you the possibility to save your sequence diagram as a PNG image.
 
 ## :star2: Advantages :star2:
-- No need to remember the [JS Sequence Diagrams syntax](http://bramp.github.io/js-sequence-diagrams/)
+- Fully compatible with [JS Sequence Diagrams syntax](http://bramp.github.io/js-sequence-diagrams/)
 - IDE **Autocompletion** for writing sequence commands
 - Easy renaming of names and actions with **variables**
 - Possibility to save your diagram as a **bitmap image** (PNG)
