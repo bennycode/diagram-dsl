@@ -7,7 +7,7 @@ module.exports = {
       sourceMap: true
     },
     files: {
-      'dist/js/<%= pkg.name %>.min.js': ['<%= concat.js.dest %>']
+      '<%= config.dist.js %><%= pkg.name %>.min.js': ['<%= concat.js.dest %>']
     }
   }
 };

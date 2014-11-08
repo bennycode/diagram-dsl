@@ -10,6 +10,9 @@ module.exports = function (grunt) {
           js: 'src/js',
           less: 'src/less'
         },
+        demo: {
+          root: 'demo'
+        },
         dist: {
           root: 'dist',
           js: 'dist/js',
@@ -19,19 +22,24 @@ module.exports = function (grunt) {
         test: {
           root: 'test',
           spec: 'test/spec'
-        },
-        livereload: {
-          port: '8888'
         }
       },
       plugin: {
         clean: require('./config/grunt/plugin/clean'),
         coffee: require('./config/grunt/plugin/coffee'),
         concat: require('./config/grunt/plugin/concat'),
+        connect: require('./config/grunt/plugin/connect'),
         jasmine: require('./config/grunt/plugin/jasmine'),
         less: require('./config/grunt/plugin/less'),
+        open: require('./config/grunt/plugin/open'),
         uglify: require('./config/grunt/plugin/uglify'),
         watch: require('./config/grunt/plugin/watch')
+      }
+    },
+    server: {
+      port: {
+        connect: 8888,
+        livereload: 36963
       }
     }
   };
@@ -41,9 +49,12 @@ module.exports = function (grunt) {
     coffee: config.grunt.plugin.coffee,
     config: config.grunt.path,
     concat: config.grunt.plugin.concat,
+    connect: config.grunt.plugin.connect,
     jasmine: config.grunt.plugin.jasmine,
     less: config.grunt.plugin.less,
+    open: config.grunt.plugin.open,
     pkg: grunt.file.readJSON('package.json'),
+    server: config.server,
     uglify: config.grunt.plugin.uglify,
     watch: config.grunt.plugin.watch
   });
@@ -68,5 +79,5 @@ module.exports = function (grunt) {
   grunt.registerTask('module-run', ['clean', 'watch']);
 
   /* Default goal */
-  grunt.registerTask('default', ['module-dist-all']);
+  grunt.registerTask('default', ['connect', 'open:demo', 'watch:demo']);
 };

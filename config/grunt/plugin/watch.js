@@ -1,9 +1,12 @@
+/**
+ * Read more:
+ * https://github.com/gruntjs/grunt-contrib-watch/blob/master/docs/watch-examples.md
+ */
 module.exports = {
-  coffee: {
+  demo: {
     options: {
-      livereload: '<%= config.livereload.port %>'
+      livereload: '<%= server.port.livereload %>'
     },
-    files: '<%= config.src.coffee %>/**/*.coffee',
-    tasks: ['coffee:dist']
+    files: '<%= config.src.root %>/**/*.js'
   }
 };
