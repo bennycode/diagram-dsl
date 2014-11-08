@@ -7,6 +7,9 @@ module.exports = {
     options: {
       livereload: '<%= server.port.livereload %>'
     },
-    files: '<%= config.src.root %>/**/*.js'
+    files: [
+      '<%= config.demo.root %>/**/*.html',
+      '<%= config.src.root %>/**/*.{js,less}'
+    ]
   }
 };

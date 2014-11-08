@@ -1,7 +1,7 @@
 module.exports = {
   server: {
     options: {
-      base: '<%= config.demo.root %>',
+      base: '.',
       hostname: '*',
       port: '<%= server.port.connect %>'
     }
