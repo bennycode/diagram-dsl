@@ -94,6 +94,10 @@ Diagram.DSL.SequenceDiagram = (function () {
       anchor.href = canvas.toDataURL('image/png');
       self.element.append(anchor);
       anchor.click();
+
+      // Remove util elements
+      canvas.remove();
+      anchor.remove();
     };
   };
 

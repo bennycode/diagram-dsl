@@ -40,6 +40,12 @@
         from(a).lineTo('Clara').withText('Hello World!').on(diagram);
 
       }
+
+      var pngButton = document.getElementById('saveAsPng');
+      pngButton.addEventListener('click', function (event) {
+        event.preventDefault();
+        diagram.saveAsPng();
+      }, false);
     </script>
   </body>
 </html>
