@@ -1,9 +1,9 @@
 module.exports = {
   dist: {
-    src: '<%= config.dist.js %>/**/*.js'
+    src: '<%= path.dist.js %>/**/*.js'
   },
   options: {
-    specs: '<%= config.test.spec %>/*Spec.js',
-    helpers: '<%= config.test.spec %>/*Helper.js'
+    specs: '<%= path.test.spec %>/*Spec.js',
+    helpers: '<%= path.test.spec %>/*Helper.js'
   }
 };

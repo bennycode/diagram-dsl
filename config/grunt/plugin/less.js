@@ -13,7 +13,7 @@ module.exports = {
       paths: ['bower_components/lesshat'],
       cleancss: false,
       sourceMap: true,
-      sourceMapFilename: '<%= config.dist.less %>/<%= pkg.name %>.less.map'
+      sourceMapFilename: '<%= path.dist.less %>/<%= pkg.name %>.less.map'
     },
     files: {
       'dist/css/<%= pkg.name %>.css': 'src/<%= pkg.name %>.less'

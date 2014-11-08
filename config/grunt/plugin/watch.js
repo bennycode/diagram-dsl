@@ -8,8 +8,8 @@ module.exports = {
       livereload: '<%= server.port.livereload %>'
     },
     files: [
-      '<%= config.demo.root %>/**/*.html',
-      '<%= config.src.root %>/**/*.{js,less}'
+      '<%= path.demo.root %>/**/*.html',
+      '<%= path.src.root %>/**/*.{js,less}'
     ]
   }
 };

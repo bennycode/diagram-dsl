@@ -1,3 +1,3 @@
 module.exports = {
-  dist: '<%= config.dist.root %>'
+  dist: '<%= path.dist.root %>'
 };

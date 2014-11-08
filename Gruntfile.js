@@ -47,12 +47,12 @@ module.exports = function (grunt) {
   grunt.initConfig({
     clean: config.grunt.plugin.clean,
     coffee: config.grunt.plugin.coffee,
-    config: config.grunt.path,
     concat: config.grunt.plugin.concat,
     connect: config.grunt.plugin.connect,
     jasmine: config.grunt.plugin.jasmine,
     less: config.grunt.plugin.less,
     open: config.grunt.plugin.open,
+    path: config.grunt.path,
     pkg: grunt.file.readJSON('package.json'),
     server: config.server,
     uglify: config.grunt.plugin.uglify,
