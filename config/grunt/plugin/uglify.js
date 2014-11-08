@@ -1,3 +1,6 @@
+/**
+ * https://github.com/gruntjs/grunt-contrib-uglify
+ */
 module.exports = {
   options: {
     banner: '/*! <%= pkg.name %> <%= grunt.template.today("yyyy-mm-dd") %> */' + '\n'

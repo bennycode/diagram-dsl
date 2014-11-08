@@ -1,3 +1,6 @@
+/**
+ * https://github.com/gruntjs/grunt-contrib-coffee
+ */
 module.exports = {
   dist: {
     expand: true,

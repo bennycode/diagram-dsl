@@ -1,3 +1,6 @@
+/**
+ * https://github.com/gruntjs/grunt-contrib-less
+ */
 module.exports = {
   dist: {
     options: {

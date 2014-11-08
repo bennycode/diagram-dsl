@@ -1,3 +1,6 @@
+/**
+ * https://github.com/gruntjs/grunt-contrib-jasmine
+ */
 module.exports = {
   dist: {
     src: '<%= path.dist.js %>/**/*.js'
