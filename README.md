@@ -293,7 +293,7 @@ If you want to extend **Diagram.DSL** or contribute to the project, then you nee
 
 ```bash
 npm install
-bower install
+grunt bower:install
 ```
 
 You only need to do the previous step once (or when new dependencies are added to the project). After that you can just go with:
