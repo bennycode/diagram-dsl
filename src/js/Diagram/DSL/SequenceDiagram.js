@@ -1,13 +1,20 @@
 Diagram.DSL.SequenceDiagram = (function () {
 
-  function SequenceDiagram(title, style) {
+  /**
+   * Combines the title, draw-style (theme) and all sequences (paths).
+   *
+   * @param {string} title The title which will be rendered above the diagram.
+   * @param {Diagram.DSL.Theme} theme Theme which will be used to render the diagram.
+   * @constructor
+   */
+  function SequenceDiagram(title, theme) {
     this.title = title;
     this.sequences = [];
-    this.style = Diagram.DSL.Theme.DEFAULT;
+    this.theme = Diagram.DSL.Theme.DEFAULT;
     this.element = undefined;
 
-    if (style) {
-      this.style = style;
+    if (theme) {
+      this.theme = theme;
     }
   }
 
@@ -25,6 +32,12 @@ Diagram.DSL.SequenceDiagram = (function () {
     return this;
   };
 
+  /**
+   * Combines the title of the diagram (if any) and all sequences (paths)
+   * into an output format which can be rendered.
+   *
+   * @returns {string} Output which can be rendered.
+   */
   SequenceDiagram.prototype.render = function () {
     var output = '';
 
@@ -59,23 +72,40 @@ Diagram.DSL.SequenceDiagram = (function () {
     element.innerText = '';
 
     var parsedOutput = Diagram.parse(output);
-    parsedOutput.drawSVG(element);
+    parsedOutput.drawSVG(this.element, {theme: this.theme});
 
     return this;
   };
 
+  /**
+   * Renders all defined paths on a HTML element.
+   *
+   * @param {HTMLElement} element HTML element
+   * @returns {Diagram.DSL.SequenceDiagram}
+   *
+   * @see {@link render} for further information.
+   */
   SequenceDiagram.prototype.renderTo = function (element) {
     if (element) {
       this.element = element;
     }
 
     var output = this.render();
-    this.element.html(output);
-    this.element.sequenceDiagram({theme: this.style});
+
+    var parsedOutput = Diagram.parse(output);
+    this.element.innerHTML = '';
+    parsedOutput.drawSVG(this.element, {theme: this.theme});
 
     return this;
   };
 
+  /**
+   * Creates a Canvas element which will be used to draw a bitmap of the original SVG element.
+   *
+   * The SVG element will be read as XML and then converted into a Base64 inline image,
+   * which can be drawn on the canvas. After the image is drawn, a pseudo-anchor tag will be created
+   * and triggered, in order to display the browser's download dialog.
+   */
   SequenceDiagram.prototype.saveAsPng = function () {
     // Get dimension
     var svgElement = this.element.firstChild;

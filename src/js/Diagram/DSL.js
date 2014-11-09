@@ -15,10 +15,11 @@
     }
 
     /**
-     * Polyfill for "window.unescape"-
+     * Polyfill for "window.unescape".
+     *
      * Read more: http://cwestblog.com/2011/05/23/escape-unescape-deprecated/
      * @param {string} input
-     * @returns {*}
+     * @see {@link http://cwestblog.com/2011/05/23/escape-unescape-deprecated/|Escape & Unescape}
      */
     window.Diagram.DSL.escapeHash = function (input) {
       var ret = window.Diagram.DSL.escapeHash[input];

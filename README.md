@@ -16,11 +16,10 @@ With **Diagram.DSL**, you can use code statements instead of string commands, to
 ### 1. Add JavaScript libraries
 
 ```html
-<script src="bower_components/jquery/dist/jquery.min.js"></script>
-<script src="bower_components/underscore/underscore-min.js"></script>
-<script src="bower_components/raphael/raphael-min.js"></script>
-<script src="bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
-<script src="bower_components/diagram-dsl/dist/js/diagram-dsl.js"></script>
+<script src="/lib/underscore/underscore.js"></script>
+<script src="/lib/raphael/raphael.js"></script>
+<script src="/lib/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
+<script src="/dist/js/diagram-dsl.js"></script>
 ```
 
 ### 2. Add a DOM element
@@ -34,8 +33,9 @@ With **Diagram.DSL**, you can use code statements instead of string commands, to
 
 ```js
 // Setup diagram
+var element = document.getElementById('diagram');
 var diagram = new Diagram.DSL.SequenceDiagram();
-diagram.renderTo($('#diagram'));
+diagram.renderTo(element);
 
 // Draw a path
 Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
@@ -63,8 +63,9 @@ Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
 You can also add a third one, which would make it to:
 
 ```js
+var element = document.getElementById('diagram');
 var diagram = new Diagram.DSL.SequenceDiagram();
-diagram.renderTo($('#diagram'));
+diagram.renderTo(element);
 
 Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
 Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
@@ -139,8 +140,9 @@ var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
 You can also define your drawing statements before rendering the diagram. But first let's see how our sample code looks like at the moment:
 
 ```js
+var element = document.getElementById('diagram');
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
-diagram.renderTo($('#diagram'));
+diagram.renderTo(element);
 
 Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
 Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow().on(diagram);
@@ -151,17 +153,18 @@ We can easily turn the above code into this one:
 
 ```js
 // Create diagram
+var element = document.getElementById('diagram');
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
 
 // Define paths
 diagram.sequences = [
-  Diagram.DSL.from('A').lineTo('B').withText('Hello'),
-  Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow(),
-  Diagram.DSL.from('A').dashTo('D').withText('!')
+Diagram.DSL.from('A').lineTo('B').withText('Hello'),
+Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow(),
+Diagram.DSL.from('A').dashTo('D').withText('!')
 ];
 
 // Render diagram
-diagram.renderTo($('#diagram'));
+diagram.renderTo(element);
 ```
 
 The difference is now, that you initialize the `sequences` array instead of writing single statements to draw the path.
@@ -170,17 +173,18 @@ You can also combine the `sequences` approach with the statements approach. So l
 
 ```js
 // Create diagram
+var element = document.getElementById('diagram');
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
 
 // Define paths
 diagram.sequences = [
-  Diagram.DSL.from('A').lineTo('B').withText('Hello'),
-  Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow(),
-  Diagram.DSL.from('A').dashTo('D').withText('!')
+Diagram.DSL.from('A').lineTo('B').withText('Hello'),
+Diagram.DSL.from('A').lineTo('C').withText('World').andOpenArrow(),
+Diagram.DSL.from('A').dashTo('D').withText('!')
 ];
 
 // Render diagram
-diagram.renderTo($('#diagram'));
+diagram.renderTo(element);
 
 // Add another path and automatically render the update
 Diagram.DSL.from('D').lineTo('A').withText('Return').on(diagram);
@@ -200,25 +204,7 @@ var b = 'B';
 var c = 'C';
 var d = 'D';
 
-var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
-diagram.renderTo($('#diagram'));
-
-Diagram.DSL.from(a).lineTo(b).withText('Hello').on(diagram);
-Diagram.DSL.from(a).lineTo(c).withText('World').on(diagram);
-Diagram.DSL.from(a).dashTo(d).withText('!').on(diagram);
-Diagram.DSL.from(d).lineTo(a).withText('Return').on(diagram);
-```
-
-We can also put the output element into a variable:
-
-```js
-var a = 'A';
-var b = 'B';
-var c = 'C';
-var d = 'D';
-
-var element = $('#diagram');
-
+var element = document.getElementById('diagram');
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
 diagram.renderTo(element);
 
@@ -236,8 +222,7 @@ var b = 'Homer';
 var c = 'Lisa';
 var d = 'Marge';
 
-var element = $('#diagram');
-
+var element = document.getElementById('diagram');
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
 diagram.renderTo(element);
 
@@ -267,8 +252,14 @@ That's it! Your browser will ask you where to save the image.
 In our examples, we made much use of the `Diagram.DSL.` syntax. You can drop it, using the `with` keyword in JavaScript. Your code can then look like this:
 
 ```js
+var a = 'Bart';
+var b = 'Homer';
+var c = 'Lisa';
+var d = 'Marge';
+
 with (window.Diagram.DSL) {
 
+  var element = document.getElementById('diagram');
   var diagram = new SequenceDiagram('My Diagram', Theme.HAND_DRAWN);
   diagram.renderTo(element);
 
@@ -276,8 +267,6 @@ with (window.Diagram.DSL) {
   from(a).lineTo(c).withText('World').on(diagram);
   from(a).dashTo(d).withText('!').on(diagram);
   from(d).lineTo(a).withText('Return').on(diagram);
-
-  diagram.saveAsPng();
 
 }
 ```
