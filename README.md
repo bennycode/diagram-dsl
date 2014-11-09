@@ -247,6 +247,31 @@ diagram.saveAsPng();
 
 That's it! Your browser will ask you where to save the image.
 
+## Render from inline statements
+
+If you need full support of all statements possible in [js-sequence-diagrams](http://bramp.github.io/js-sequence-diagrams/), then we have the solution for you! 
+
+You can use all features (such `participant` and `Note`) when using the `renderFrom` method.
+
+```html
+<!-- HTML -->
+<div id="diagram">
+  participant C
+  participant B
+  participant A
+  Note right of A: By listing the participants\n you can change their order
+</div>
+
+<!-- JavaScript -->
+<script>
+  var element = document.getElementById('diagram');
+  var diagram = new Diagram.DSL.SequenceDiagram();
+  diagram.renderFrom(element);
+</script>
+```
+
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-10.png)
+
 ## Drop Diagram.DSL namespace
 
 In our examples, we made much use of the `Diagram.DSL.` syntax. You can drop it, using the `with` keyword in JavaScript. Your code can then look like this:
