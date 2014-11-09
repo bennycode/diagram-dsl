@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/diagrams-dsl/index.html">
+  <configuration default="false" name="index.html" type="JavascriptDebugType" factoryName="JavaScript Debug" nameIsGenerated="true" uri="http://localhost:63342/diagram-dsl/index.html">
     <RunnerSettings RunnerId="JavascriptDebugRunner" />
     <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
     <method />

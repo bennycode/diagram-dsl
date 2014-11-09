@@ -1,5 +1,5 @@
 {
-  "name": "diagrams-dsl",
+  "name": "diagram-dsl",
   "devDependencies": {
     "grunt": "~0",
     "grunt-bower-task": "~0",
@@ -16,6 +16,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/welovecoding/diagrams-dsl"
+    "url": "git://github.com/welovecoding/diagram-dsl"
   }
 }

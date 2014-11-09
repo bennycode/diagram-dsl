@@ -20,7 +20,7 @@ With **Diagrams.DSL**, you can use code statements instead of string commands, t
 <script src="bower_components/underscore/underscore-min.js"></script>
 <script src="bower_components/raphael/raphael-min.js"></script>
 <script src="bower_components/js-sequence-diagrams/build/sequence-diagram-min.js"></script>
-<script src="bower_components/diagrams-dsl/dist/js/diagrams-dsl.js"></script>
+<script src="bower_components/diagram-dsl/dist/js/diagram-dsl.js"></script>
 ```
 
 ### 2. Add a DOM element
@@ -45,7 +45,7 @@ Diagram.DSL.from('A').lineTo('B').withText('Hello').on(diagram);
 
 Just look at your result:
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-1.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-1.png)
 
 ## Do more with it
 
@@ -58,7 +58,7 @@ If you want to add another line to your diagram, then just draw a second path:
 Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
 ```
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-2.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-2.png)
 
 You can also add a third one, which would make it to:
 
@@ -71,7 +71,7 @@ Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
 Diagram.DSL.from('A').lineTo('D').withText('!').on(diagram);
 ```
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-3.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-3.png)
 
 ### Draw dashed lines
 
@@ -83,7 +83,7 @@ Diagram.DSL.from('A').lineTo('C').withText('World').on(diagram);
 Diagram.DSL.from('A').dashTo('D').withText('!').on(diagram);
 ```
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-4.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-4.png)
 
 ## Draw open arrows
 
@@ -97,7 +97,7 @@ Diagram.DSL.from('A').dashTo('D').withText('!').on(diagram);
 
 Check how the arrow of the second path is renderd:
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-5.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-5.png)
 
 ## Add title
 
@@ -109,7 +109,7 @@ var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
 
 You will get something like this:
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-6.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-6.png)
 
 ## Change theme
 
@@ -119,7 +119,7 @@ Uh, did we mention, that you can draw your diagram in a different style? At the 
 var diagram = new Diagram.DSL.SequenceDiagram('My Diagram', Diagram.DSL.Theme.HAND_DRAWN);
 ```
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-7.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-7.png)
 
 If you want to switch back, just use:
 
@@ -188,7 +188,7 @@ Diagram.DSL.from('D').lineTo('A').withText('Return').on(diagram);
 
 The result will be:
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-8.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-8.png)
 
 ## Variables
 
@@ -249,7 +249,7 @@ Diagram.DSL.from(d).lineTo(a).withText('Return').on(diagram);
 
 In the blink of an eye, we got this:
 
-![Result](http://welovecoding.github.io/diagrams-dsl/readme/intro-9.png)
+![Result](http://welovecoding.github.io/diagram-dsl/readme/intro-9.png)
 
 
 ## Save diagram as bitmap image (PNG)
