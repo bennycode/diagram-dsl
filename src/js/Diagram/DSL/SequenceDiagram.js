@@ -40,6 +40,30 @@ Diagram.DSL.SequenceDiagram = (function () {
     return output;
   };
 
+  /**
+   * Provides support to render a diagram from a declaration inside
+   * an HTML element. Using an inline declaration, you can render all possible statements
+   * from "js-sequence-diagrams".
+   *
+   * @param {HTMLElement} element Plain HTML element with diagram description.
+   * @returns {Diagram.DSL.SequenceDiagram}
+   *
+   * @see {@link http://bramp.github.io/js-sequence-diagrams/|Possible statements}
+   */
+  SequenceDiagram.prototype.renderFrom = function (element) {
+    if (element) {
+      this.element = element;
+    }
+
+    var output = element.textContent || element.innerText;
+    element.innerText = '';
+
+    var parsedOutput = Diagram.parse(output);
+    parsedOutput.drawSVG(element);
+
+    return this;
+  };
+
   SequenceDiagram.prototype.renderTo = function (element) {
     if (element) {
       this.element = element;
@@ -54,7 +78,7 @@ Diagram.DSL.SequenceDiagram = (function () {
 
   SequenceDiagram.prototype.saveAsPng = function () {
     // Get dimension
-    var svgElement = this.element.children(0).get(0);
+    var svgElement = this.element.firstChild;
     var svgWidth = svgElement.getBoundingClientRect().width;
     var svgHeight = svgElement.getBoundingClientRect().height;
 
@@ -66,7 +90,7 @@ Diagram.DSL.SequenceDiagram = (function () {
     canvas.width = width;
     canvas.height = height;
     canvas.style.display = 'none';
-    this.element.append(canvas);
+    this.element.appendChild(canvas);
 
     // Draw SVG on Canvas
     var outer = document.createElement('div');
@@ -92,7 +116,7 @@ Diagram.DSL.SequenceDiagram = (function () {
         anchor.download = 'sequence.png';
       }
       anchor.href = canvas.toDataURL('image/png');
-      self.element.append(anchor);
+      self.element.appendChild(anchor);
       anchor.click();
 
       // Remove util elements

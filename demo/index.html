@@ -21,25 +21,18 @@
     <script src="/src/js/Diagram/DSL/SequenceDiagram.js"></script>
   </head>
   <body>
-    <div id="diagram"></div>
+    <div id="diagram">
+      participant C
+      participant B
+      participant A
+      Note right of A: By listing the participants\n you can change their order
+    </div>
     <button id="saveAsPng">Save as PNG</button>
     <script src="demo.js"></script>
     <script>
-      var a = 'A';
-      var b = 'B';
-
-      var element = $('#diagram');
-
-      with (window.Diagram.DSL) {
-
-        var diagram = new SequenceDiagram('My Diagram', Theme.HAND_DRAWN);
-        diagram.renderTo(element);
-
-        from(a).dashTo(b).withText('Hello World!').andOpenArrow().on(diagram);
-        from(b).lineTo(a).withText('Hello World!').on(diagram);
-        from(a).lineTo('Clara').withText('Hello World!').on(diagram);
-
-      }
+      var element = document.getElementById('diagram');
+      var diagram = new Diagram.DSL.SequenceDiagram('My Diagram');
+      diagram.renderFrom(element);
 
       var pngButton = document.getElementById('saveAsPng');
       pngButton.addEventListener('click', function (event) {
