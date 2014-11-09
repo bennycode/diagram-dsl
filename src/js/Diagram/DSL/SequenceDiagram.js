@@ -1,11 +1,11 @@
 Diagram.DSL.SequenceDiagram = (function () {
 
   /**
+   * @constructor
    * Combines the title, draw-style (theme) and all sequences (paths).
    *
    * @param {string} title The title which will be rendered above the diagram.
    * @param {Diagram.DSL.Theme} theme Theme which will be used to render the diagram.
-   * @constructor
    */
   function SequenceDiagram(title, theme) {
     this.title = title;
@@ -69,6 +69,10 @@ Diagram.DSL.SequenceDiagram = (function () {
     }
 
     var output = element.textContent || element.innerText;
+    if (this.title) {
+      output = 'title: ' + this.title + output;
+    }
+
     element.innerText = '';
 
     var parsedOutput = Diagram.parse(output);
