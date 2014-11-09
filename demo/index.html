@@ -4,7 +4,6 @@
     <title>Demo</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/vnd.microsoft.icon" href="assets/images/favicon.ico" />
     <!-- Dependencies -->
     <script src="/lib/underscore/underscore.js"></script>
     <script src="/lib/raphael/raphael.js"></script>
@@ -24,24 +23,25 @@
     <button id="saveAsPng">Save as PNG</button>
     <script src="demo.js"></script>
     <script>
-      // Create diagram
-      var a = 'Bart';
-      var b = 'Homer';
-      var c = 'Lisa';
-      var d = 'Marge';
+      var bart = 'Bart';
+      var homer = 'Homer';
+      var lisa = 'Lisa';
+      var marge = 'Marge';
 
       with (window.Diagram.DSL) {
 
-        var element = document.getElementById('diagram');
-        var diagram = new SequenceDiagram('My Diagram', Theme.HAND_DRAWN);
-        diagram.renderTo(element);
+        var diagram = new SequenceDiagram('A Day At The Simpsons', Theme.HAND_DRAWN);
 
-        from(a).lineTo(b).withText('Hello').on(diagram);
-        from(a).lineTo(c).withText('World').on(diagram);
-        from(a).dashTo(d).withText('!').on(diagram);
-        from(d).lineTo(a).withText('Return').on(diagram);
+        diagram.sequences = [
+          from(bart).lineTo(homer).withText('annoys'),
+          from(homer).lineTo(bart).withText('chokes'),
+          from(bart).dashTo(lisa).withText('annoys'),
+          from(lisa).dashTo(marge).withText('stools at'),
+          from(marge).lineTo(bart).withText('gives house arrest').andOpenArrow()
+        ];
 
-        diagram.saveAsPng();
+        diagram.renderTo(document.getElementById('diagram'));
+
       }
 
       var pngButton = document.getElementById('saveAsPng');
