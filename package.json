@@ -2,6 +2,7 @@
   "name": "diagrams-dsl",
   "devDependencies": {
     "grunt": "~0",
+    "grunt-bower-task": "~0",
     "grunt-contrib-clean": "~0",
     "grunt-contrib-coffee": "*",
     "grunt-contrib-concat": "~0",

@@ -25,6 +25,7 @@ module.exports = function (grunt) {
         }
       },
       plugin: {
+        bower: require('./config/grunt/plugin/bower'),
         clean: require('./config/grunt/plugin/clean'),
         coffee: require('./config/grunt/plugin/coffee'),
         concat: require('./config/grunt/plugin/concat'),
@@ -45,6 +46,7 @@ module.exports = function (grunt) {
   };
 
   grunt.initConfig({
+    bower: config.grunt.plugin.bower,
     clean: config.grunt.plugin.clean,
     coffee: config.grunt.plugin.coffee,
     concat: config.grunt.plugin.concat,
@@ -76,8 +78,8 @@ module.exports = function (grunt) {
   grunt.registerTask('module-test-js', ['module-build-js', 'jasmine:dist']);
 
   /* Main goals */
-  grunt.registerTask('module-run', ['clean', 'watch']);
+  grunt.registerTask('module-run', ['connect', 'open:demo', 'watch:demo']);
 
   /* Default goal */
-  grunt.registerTask('default', ['connect', 'open:demo', 'watch:demo']);
+  grunt.registerTask('default', 'module-run');
 };

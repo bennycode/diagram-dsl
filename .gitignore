@@ -3,6 +3,7 @@
 # Node.JS & Bower modules
 /bower_components
 /node_modules
+/lib
 
 # NetBeans IDE
 # http://stackoverflow.com/a/1267580/451634
