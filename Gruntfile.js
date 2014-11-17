@@ -51,6 +51,12 @@ module.exports = function (grunt) {
     server: config.server
   });
 
+  /* Check */
+  grunt.registerTask('module-check-grunt', function () {
+    var pkg = grunt.file.readJSON('package.json');
+    return grunt.log.writeln("Grunt works. Module: " + pkg.name);
+  });
+
   /* Build */
   grunt.registerTask('module-build-all', ['clean', 'concat', 'less:src']);
   grunt.registerTask('module-build-js', ['clean', 'concat:js']);
