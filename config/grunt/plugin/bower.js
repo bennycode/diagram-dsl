@@ -7,9 +7,9 @@ module.exports = {
       targetDir: './lib',
       layout: 'byComponent',
       install: true,
-      verbose: false,
+      verbose: true,
       cleanTargetDir: true,
-      cleanBowerDir: true,
+      cleanBowerDir: false,
       bowerOptions: {
         forceLatest: true,
         production: true
