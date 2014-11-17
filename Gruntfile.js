@@ -23,18 +23,6 @@ module.exports = function (grunt) {
           root: 'test',
           spec: 'test/spec'
         }
-      },
-      plugin: {
-        bower: require('./config/grunt/plugin/bower'),
-        clean: require('./config/grunt/plugin/clean'),
-        coffee: require('./config/grunt/plugin/coffee'),
-        concat: require('./config/grunt/plugin/concat'),
-        connect: require('./config/grunt/plugin/connect'),
-        jasmine: require('./config/grunt/plugin/jasmine'),
-        less: require('./config/grunt/plugin/less'),
-        open: require('./config/grunt/plugin/open'),
-        uglify: require('./config/grunt/plugin/uglify'),
-        watch: require('./config/grunt/plugin/watch')
       }
     },
     server: {
@@ -46,19 +34,21 @@ module.exports = function (grunt) {
   };
 
   grunt.initConfig({
-    bower: config.grunt.plugin.bower,
-    clean: config.grunt.plugin.clean,
-    coffee: config.grunt.plugin.coffee,
-    concat: config.grunt.plugin.concat,
-    connect: config.grunt.plugin.connect,
-    jasmine: config.grunt.plugin.jasmine,
-    less: config.grunt.plugin.less,
-    open: config.grunt.plugin.open,
+    // Requirements
+    bower: require('./config/grunt/plugin/bower'),
+    clean: require('./config/grunt/plugin/clean'),
+    coffee: require('./config/grunt/plugin/coffee'),
+    concat: require('./config/grunt/plugin/concat'),
+    connect: require('./config/grunt/plugin/connect'),
+    jasmine: require('./config/grunt/plugin/jasmine'),
+    less: require('./config/grunt/plugin/less'),
+    open: require('./config/grunt/plugin/open'),
+    uglify: require('./config/grunt/plugin/uglify'),
+    watch: require('./config/grunt/plugin/watch'),
+    // Configs
     path: config.grunt.path,
     pkg: grunt.file.readJSON('package.json'),
-    server: config.server,
-    uglify: config.grunt.plugin.uglify,
-    watch: config.grunt.plugin.watch
+    server: config.server
   });
 
   /* Build */
@@ -77,9 +67,10 @@ module.exports = function (grunt) {
   grunt.registerTask('module-test-coffee', ['module-dist-coffee', 'jasmine:dist']);
   grunt.registerTask('module-test-js', ['module-build-js', 'jasmine:dist']);
 
-  /* Main goals */
+  /* Execution */
   grunt.registerTask('module-run', ['connect', 'open:demo', 'watch:demo']);
+  grunt.registerTask('module-first-run', ['bower:install', 'module-run']);
 
-  /* Default goal */
+  /* Default */
   grunt.registerTask('default', 'module-run');
 };

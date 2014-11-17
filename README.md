@@ -307,7 +307,7 @@ If you want to extend **Diagram.DSL** or contribute to the project, then you nee
 
 ```bash
 npm install
-grunt bower:install
+grunt module-first-run
 ```
 
 You only need to do the previous step once (or when new dependencies are added to the project). After that you can just go with:
