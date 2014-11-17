@@ -51,7 +51,7 @@ module.exports = function (grunt) {
     server: config.server
   });
 
-  /* Check */
+  /* Self Test */
   grunt.registerTask('module-self-test-grunt', function () {
     var pkg = grunt.file.readJSON('package.json');
     return grunt.log.writeln("Grunt works. Module: " + pkg.name);
