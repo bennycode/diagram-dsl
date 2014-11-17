@@ -52,7 +52,7 @@ module.exports = function (grunt) {
   });
 
   /* Check */
-  grunt.registerTask('module-check-grunt', function () {
+  grunt.registerTask('module-self-test-grunt', function () {
     var pkg = grunt.file.readJSON('package.json');
     return grunt.log.writeln("Grunt works. Module: " + pkg.name);
   });
@@ -75,7 +75,7 @@ module.exports = function (grunt) {
 
   /* Execution */
   grunt.registerTask('module-run', ['connect', 'open:demo', 'watch:demo']);
-  grunt.registerTask('module-first-run', ['bower:install', 'module-run']);
+  grunt.registerTask('module-first-run', ['module-self-test-grunt', 'bower:install', 'module-run']);
 
   /* Default */
   grunt.registerTask('default', 'module-run');
