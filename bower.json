@@ -1,6 +1,11 @@
 {
   "name": "diagram-dsl",
-  "main": "dist/js/diagram-dsl.js",
+  "main": [
+    "lib/underscore/underscore.js",
+    "lib/raphael/raphael.js",
+    "lib/js-sequence-diagrams/build/sequence-diagram-min.js",
+    "dist/js/diagram-dsl.js"
+  ],
   "ignore": [
     ".gitignore",
     ".idea",
@@ -26,5 +31,13 @@
   "repository": {
     "type": "git",
     "url": "git://github.com/welovecoding/diagram-dsl"
-  }
+  },
+  "keywords": [
+    "diagrams",
+    "javascript",
+    "js-sequence-diagrams",
+    "sequence",
+    "svg",
+    "uml"
+  ]
 }
